@@ -1,0 +1,105 @@
+<h1>SlicePipe</h1>
+<ul>
+  <li *ngFor="let i of collection | slice:1:4">{{i}}</li>
+</ul>
+
+<hr>
+<h1>PercentPipe</h1>
+<div>
+  <p>A: {{c | percent}}</p>
+  <p>B: {{d | percent:'4.3-5'}}</p>
+  <!-- <p>B: {{d | percent:'4.3-5':'fr'}}</p> -->
+</div>
+
+<hr>
+<h1>KeyValuePipe</h1>
+<span>
+  <p>Object</p>
+  <div *ngFor="let item of object | keyvalue">
+    {{item.key}}:{{item.value}}
+  </div>
+  <p>Map</p>
+  <div *ngFor="let item of map | keyvalue">
+    {{item.key}}:{{item.value}}
+  </div>
+</span>
+
+<hr>
+<h1>JsonPipe</h1>
+<div>
+  <p>Sin JSON pipe:</p>
+  <pre>{{nombre}}</pre>
+  <p>Con JSON pipe:</p>
+  <pre>{{nombre | json}}</pre>
+</div>
+<hr>
+
+<h1>I18nPluralPipe</h1>
+<div>{{ messages.length | i18nPlural: messageMapping }}</div>
+
+<hr>
+<h1>I18nSelectPipe</h1>
+<div>{{gender | i18nSelect: inviteMap}} </div>
+
+<hr>
+<h1>AsyncPipe</h1>
+<div>
+  <button (click)="clicked()">{{ arrived ? 'Reset' : 'Resolve' }}</button>
+  <span>Wait for it... {{ greeting | async }}</span>
+</div>
+
+<hr>
+<h1>CurrencyPipe</h1>
+ <p>Precio: {{a | currency}}</p>
+ <p>Precio: {{a | currency:'PEN'}}</p>
+ <p>Precio: {{a | currency:'PEN':'code'}}</p>
+ <p>Precio: {{b | currency:'PEN':'symbol':'4.2-2'}}</p>
+ <p>Precio: {{b | currency:'PEN':'symbol-narrow':'4.2-2'}}</p>
+ <!-- <p>Precio: {{b | currency:'CAD':'symbol':'4.2-2':'fr'}}</p> -->
+ <h2>codigo ISO del peso chileno</h2>
+ <p>Precio: {{b | currency:'CLP'}}</p>
+
+  <hr>
+ <h1>DatePipe</h1>
+ <p>La fecha de hoy es: {{fechaHora | date}}</p>
+ <p>Fecha en forma larga: {{fechaHora | date:'fullDate'}}</p>
+ <p>La fecha de hoy corta: {{fechaHora | date:'short'}}</p>
+ <p>La fecha y hora: {{fechaHora | date:'medium'}}</p>
+ <p>Fecha es: {{fechaHora | date:'long'}}</p>
+ <p>Fecha es: {{fechaHora | date:'EEEE, MMMM d, y, h:mm:ss a zzzz'}}</p>
+ <p>La hora es: {{fechaHora | date:'h:mm a z'}}</p>
+ <p>La hora es: {{fechaHora | date:'shortTime'}}</p>
+ <p>La hora es: {{fechaHora | date:'h:mm:ss a'}}</p>
+ <p>La hora es: {{fechaHora | date:'h:mm:ss a zzzz'}}</p>
+  puedo hacer mi propio formato
+ <p>Formato Propio </p>
+ <p>Fecha: {{fechaHora | date:'dd/MM/yyyy  h:mm aaaa'}}</p>
+
+<hr>
+<h1>DecimalPipe</h1>
+<p>Cuando no especificas formatos: {{pi | number}}</p>
+<p>Cuando especificamos un formato 4.1-5: {{pi | number:'4.1-5'}}</p>
+<!-- <p>Cuando especificamos un formato con parámetros locales:{{pi | number:'4.1-5':'fr'}}</p> -->
+
+<hr>
+<h1>LowerCasePipe</h1>
+<div>
+  <label>Nombres: </label><input [(ngModel)]="nombre1" type="text">
+  <p>En minúscula: {{nombre1 | lowercase}}</p>
+</div>
+
+<hr>
+<h1>UpperCasePipe</h1>
+<div>
+  <label>Apellidos: </label><input [(ngModel)]="nombre2" type="text">
+  <p>En mayúscula: {{nombre2 | uppercase}}</p>
+</div>
+<hr>
+
+<h1>TitleCasePipe</h1>
+<div>
+  <label>Ingrese texto</label><input [style.width.px]="600" [(ngModel)]="texto" type="text">
+  <p>En mayúscula: {{texto | titlecase}}</p>
+</div>
+<hr>
+
